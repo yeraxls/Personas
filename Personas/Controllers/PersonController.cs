@@ -1,5 +1,4 @@
 using Aplication.Interfaces;
-using Core.Actions.Command;
 using Core.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +12,9 @@ namespace Personas.Controllers
     {
 
         private readonly IPersonService _personService;
-        private readonly IMediator _mediator;
-        public PersonController(IPersonService personService, IMediator mediator)
+        public PersonController(IPersonService personService)
         {
             _personService = personService;
-            _mediator = mediator;
         }
 
         [HttpGet]
