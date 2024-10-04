@@ -3,3 +3,6 @@ Es una API sencilla con .Net 8, entity frameword usando el patrón CQRS, el patr
 Todo desarrollado mediante una arquitectura limpia.
 Los próximos pasos será añadir  Redis, para tener dos bbdd, una de lectura rápida y otra de escritura.
 Y mirar algún event sourcing, para poder mantener redis actualizado.
+
+Arrancar Redis
+docker run -p 6379:6379 redis

@@ -1,4 +1,3 @@
-using Core.Actions.Command;
 using Infraestructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Personas;
@@ -20,7 +19,11 @@ c.UseSqlServer(builder.Configuration.GetConnectionString("UrlSql"))
 var assemblies = Assembly.Load("Aplication");
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
-
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("RedisConnection");
+    options.InstanceName = "Redisdemo_";
+});
 
 IoC.AddDependency(builder.Services);
 var app = builder.Build();
